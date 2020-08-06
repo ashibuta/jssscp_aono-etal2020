@@ -1,0 +1,72 @@
+---
+title: "starch-data"
+author: "ayakoshibutani"
+date: "2020/8/2"
+output: html_document
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(readr)
+library(tidyverse)
+library(knitr)
+library(rmarkdown)
+library(revealjs)
+```
+
+```{r}
+starch <- read_csv("kabu-daikon-starch.csv") #データフレーム名を付ける
+head(starch)
+names(starch)
+```
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+ggplot(starch, aes(横径, 縦径)) + 
+  geom_point() +
+  stat_smooth(method = lm, se = FALSE) +
+  labs(x ="横径", y = "縦径") +
+  theme_classic()
+```
+
+```{r}
+ggplot(starch, aes(x = 横径, y = 縦径, colour = 種類)) + 
+  geom_point(size = 3) +
+  labs(x ="横径", y = "縦径") +
+  theme_bw()
+```
+
+```{r}
+ggplot(starch, aes(x = 横径, y = 縦径, colour = 種類)) +
+  geom_point(size = 3) +
+  theme_bw()
+```
+
+```{r}
+ggplot(starch, aes(x = 横径, y = 縦径, colour = 種類)) +
+          geom_point() +
+          facet_grid(種類 ~ .)
+dev.off()
+```
+
+```{r}
+ggplot(starch, aes(x = 横径, y = 縦径, colour = 種類)) +
+  geom_point(size=5) + 
+  theme_bw()
+```
+
+```{r}
+ggplot(starch, aes(x = 横径, y = 縦径)) +
+    theme_bw() + geom_point() + facet_wrap(~種類) +
+    theme(strip.background = element_blank(), 
+                  strip.text = element_text(size = 15))
+```
+
