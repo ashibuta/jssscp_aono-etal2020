@@ -30,34 +30,6 @@ library(ggplot2)
 ```
 
 ```{r}
-ggplot(starch, aes(横径, 縦径)) + 
-  geom_point() +
-  stat_smooth(method = lm, se = FALSE) +
-  labs(x ="横径", y = "縦径") +
-  theme_classic()
-```
-
-```{r}
-ggplot(starch, aes(x = 横径, y = 縦径, colour = 種類)) + 
-  geom_point(size = 3) +
-  labs(x ="横径", y = "縦径") +
-  theme_bw()
-```
-
-```{r}
-ggplot(starch, aes(x = 横径, y = 縦径, colour = 種類)) +
-  geom_point(size = 3) +
-  theme_bw()
-```
-
-```{r}
-ggplot(starch, aes(x = 横径, y = 縦径, colour = 種類)) +
-          geom_point() +
-          facet_grid(種類 ~ .)
-dev.off()
-```
-
-```{r}
 ggplot(starch, aes(x = 横径, y = 縦径, colour = 種類)) +
   geom_point(size=5) + 
   theme_bw()
@@ -69,4 +41,3 @@ ggplot(starch, aes(x = 横径, y = 縦径)) +
     theme(strip.background = element_blank(), 
                   strip.text = element_text(size = 15))
 ```
-
