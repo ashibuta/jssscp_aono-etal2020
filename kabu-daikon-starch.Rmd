@@ -1,7 +1,7 @@
 ---
 title: "starch-data"
 author: "ayakoshibutani"
-date: "2020/8/2"
+date: "2020/8/8"
 output: html_document
 editor_options: 
   chunk_output_type: inline
