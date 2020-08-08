@@ -1,0 +1,54 @@
+---
+title: "kabu-daikon-starch_data"
+author: "ayakoshibutani"
+date: "2020/8/8"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(readr)
+library(tidyverse)
+library(knitr)
+library(rmarkdown)
+library(revealjs)
+```
+
+```{r}
+starch <- read_csv("kabu-daikon-starch.csv") #データフレーム名を付ける
+head(starch)
+names(starch)
+```
+
+```{r}
+ggplot(starch, aes(x = 横径, y = 縦径, shape = デンプン粒の種類, colour = デンプン粒の種類)) +
+  geom_point(size=5) +
+  ggplot2::scale_colour_brewer(palette = "Dark2") +
+  theme_bw()
+```
+
+```{r}
+ggplot(starch, aes(x = 横径, y = 縦径, shape = デンプン粒の種類, colour = デンプン粒の種類)) +
+  geom_point(size=5) +
+  ggplot2::scale_colour_brewer(palette = "Paired") +
+  theme_bw()
+```
+
+```{r}
+ggplot(starch, aes(x = 横径, y = 縦径, shape = デンプン粒の種類, colour = デンプン粒の種類)) +
+  geom_point(size=5) +
+  ggplot2::scale_colour_brewer(palette = "Set1") +
+  theme_bw()
+```
+
+
+```{r}
+ggplot(starch, aes(x = 横径, y = 縦径)) +
+    theme_bw() + geom_point() + facet_wrap(~種類細別) +
+    theme(strip.background = element_blank(), 
+                  strip.text = element_text(size = 15))
+```
+
