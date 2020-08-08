@@ -30,14 +30,30 @@ library(ggplot2)
 ```
 
 ```{r}
-ggplot(starch, aes(x = 横径, y = 縦径, colour = 種類)) +
-  geom_point(size=5) + 
+ggplot(starch, aes(x = 横径, y = 縦径, shape = デンプン粒の種類, colour = デンプン粒の種類)) +
+  geom_point(size=5) +
+  ggplot2::scale_colour_brewer(palette = "Set1") +
+  theme_bw()
+```
+
+```{r}
+ggplot(starch, aes(x = 横径, y = 縦径, shape = デンプン粒の種類, colour = デンプン粒の種類)) +
+  geom_point(size=5) +
+  ggplot2::scale_colour_brewer(palette = "Dark2") +
+  theme_bw()
+```
+
+```{r}
+ggplot(starch, aes(x = 横径, y = 縦径, shape = デンプン粒の種類, colour = デンプン粒の種類)) +
+  geom_point(size=5) +
+  ggplot2::scale_colour_brewer(palette = "Paired") +
   theme_bw()
 ```
 
 ```{r}
 ggplot(starch, aes(x = 横径, y = 縦径)) +
-    theme_bw() + geom_point() + facet_wrap(~種類) +
+    theme_bw() + geom_point() + facet_wrap(~種類細別) +
     theme(strip.background = element_blank(), 
                   strip.text = element_text(size = 15))
 ```
+
