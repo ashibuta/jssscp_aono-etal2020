@@ -36,7 +36,7 @@ ggplot(starch, aes(x = 横径, y = 縦径, shape = デンプン粒の種類, col
 ggplot(starch, aes(x = 横径, y = 縦径)) +
     theme_bw() + geom_point() + facet_wrap(~種類細別) +
     theme(strip.background = element_blank(), 
-                  strip.text = element_text(size = 15))
+                  strip.text = element_text(size = 12))
 ```
 
 
